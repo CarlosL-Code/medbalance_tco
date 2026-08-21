@@ -167,13 +167,13 @@
   @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
   .orbit-core{
     position:relative;
-    width:56%;
+    width:70%;
     aspect-ratio:1/1;
     border-radius:50%;
     background:var(--white);
     box-shadow:var(--shadow);
     display:flex;align-items:center;justify-content:center;
-    padding:14%;
+    padding:6%;
   }
   .orbit-core img{width:100%;}
   .orbit-dot{
@@ -256,45 +256,79 @@
     line-height:1.4;
   }
   .fonasa-badge b{color:var(--teal-deep);}
-  table.price-table{width:100%;border-collapse:collapse;font-size:0.9rem;}
+  table.price-table{width:100%;border-collapse:separate; border-spacing: 0 8px; font-size:0.95rem; margin-top: 10px;}
   table.price-table th{
     text-align:left;font-family:'Lato',sans-serif;font-weight:800;text-transform:uppercase;
-    font-size:0.68rem;letter-spacing:0.08em;color:var(--ink-soft);padding:0 14px 10px;
+    font-size:0.75rem;letter-spacing:0.08em;color:var(--ink-soft);padding:0 18px 6px; border:none;
   }
   table.price-table th.num, table.price-table td.num{text-align:right;}
-  table.price-table td{padding:14px;border-top:1px solid var(--line);}
-  table.price-table tr td:first-child{border-radius:0;}
+  table.price-table td{padding:16px 18px;background:var(--white);border:1px solid var(--line); border-style: solid none solid none;}
+  table.price-table td:first-child{border-left:1px solid var(--line); border-radius: 12px 0 0 12px;}
+  table.price-table td:last-child{border-right:1px solid var(--line); border-radius: 0 12px 12px 0;}
   table.price-table .price-convenio{color:var(--orange-deep);font-weight:800;}
-  table.price-table .price-particular{color:var(--ink-soft);font-weight:700;}
-  table.price-table tbody tr:hover{background:var(--cream-2);}
+  table.price-table .price-particular{color:var(--ink-soft);font-weight:700; text-decoration: line-through; opacity: 0.7;}
+  table.price-table tbody tr{box-shadow: 0 4px 12px -6px rgba(14,82,69,0.05); transition: transform 0.2s, box-shadow 0.2s;}
+  table.price-table tbody tr:hover{transform: translateY(-2px); box-shadow: 0 8px 18px -6px rgba(14,82,69,0.12); z-index: 1; position: relative;}
   .table-note{font-size:0.76rem;color:var(--ink-soft);margin-top:14px;line-height:1.5;}
 
-  /* CONVENIOS */
-  #convenios{background:var(--cream-2);}
-  .convenios-grid{
-    display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:24px;
-    margin-top: 40px;
+  /* CONVENIOS SLIDER */
+  #convenios{background:var(--cream-2); overflow:hidden;}
+  .convenios-slider {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
   }
-  .convenio-card{
-    background:var(--white);border-radius:var(--radius-md);padding:32px 26px;
-    box-shadow: 0 10px 30px -15px rgba(14,82,69,0.12);
-    display:flex;flex-direction:column;align-items:center;text-align:center;
-    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-    border: 1.5px solid var(--line);
+  .convenios-slider::before, .convenios-slider::after {
+    background: linear-gradient(to right, var(--cream-2) 0%, rgba(255,255,255,0) 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 150px;
+    z-index: 2;
   }
-  .convenio-card:hover{
-    transform:translateY(-5px);
-    box-shadow: 0 15px 35px -15px rgba(14,82,69,0.22);
-    border-color: var(--teal-mid);
+  .convenios-slider::after { right: 0; top: 0; transform: rotateZ(180deg); }
+  .convenios-slider::before { left: 0; top: 0; }
+  .convenios-slide-track {
+    animation: scroll 25s linear infinite;
+    display: flex;
+    width: calc(300px * 12); /* 6 unique slides * 2 for loop */
+    align-items: center;
+    gap: 30px;
   }
-  .convenio-icon{
-    width: 64px; height: 64px; border-radius: 50%;
-    background: var(--cream); color: var(--teal-deep);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; margin-bottom: 20px;
+  .convenios-slide-track:hover { animation-play-state: paused; }
+  .convenio-slide {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
-  .convenio-info h4{font-size: 1.15rem; margin-bottom: 10px; color: var(--ink);}
-  .convenio-info p{font-size: 0.9rem; color: var(--ink-soft); line-height: 1.5; margin: 0;}
+  .convenio-slide img {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+  .convenio-slide .convenio-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 26px 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 20px -10px rgba(14,82,69,0.1);
+    border: 1px solid var(--line);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 120px;
+  }
+  .convenio-card h4 { font-size: 1.15rem; margin-bottom: 6px; color: var(--teal-deep); }
+  .convenio-card p { font-size: 0.85rem; color: var(--ink-soft); margin: 0; line-height: 1.3; }
+  
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-330px * 6)); } /* 300 width + 30 gap */
+  }
 
   /* EQUIPO */
   #equipo{background:var(--white);}
@@ -453,30 +487,31 @@
         <h2>Un equipo, un mismo propósito: tu bienestar.</h2>
       </div>
       <div class="nosotros-grid">
-        <div class="nosotros-art">
-          <blockquote>"Creemos que cada persona merece una atención cercana, profesional y con enfoque integral, porque cuidar tu salud es cuidar tu equilibrio."</blockquote>
-          <div class="sig">— Equipo MedBalance, Temuco</div>
+         <div class="nosotros-art" style="background:var(--teal-deep); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1); border-radius:var(--radius-md); padding:40px; position:relative; color:white; overflow:hidden; margin-bottom:40px;">
+          <svg style="position:absolute; top:20px; right:20px; opacity:0.1; width:80px; height:80px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          <blockquote style="font-weight:400; font-size:1.4rem; font-style:italic; margin:0; position:relative; z-index:1;">"La salud integral no es solo la ausencia de enfermedad, sino el equilibrio perfecto entre tu cuerpo y tu mente. Cada persona merece una atención cercana, profesional y a su medida."</blockquote>
+          <div class="sig" style="margin-top:20px; font-weight:700; opacity:0.8; font-size:0.9rem;">— Dirección Clínica MedBalance</div>
         </div>
         <div>
           <p style="color:var(--ink-soft); line-height:1.7; font-size:1.02rem; margin:0 0 30px;">
-            MedBalance nace en Temuco como un centro de salud pensado para acompañarte de forma integral: cuerpo y mente trabajando juntos. Nuestro equipo de profesionales —psicólogas, kinesiólogo, fonoaudióloga y nutricionistas— diseña planes personalizados y sostenibles en el tiempo, con valores especiales para afiliados a Fonasa.
+            MedBalance nace en Temuco como un centro de salud pensado para acompañarte de forma integral. Nuestro equipo de profesionales clínicos diseña planes terapéuticos personalizados y basados en evidencia, garantizando una atención de primer nivel con valores preferenciales.
           </p>
           <div class="pillars">
             <div class="pillar">
-              <div class="pillar-ic">🩺</div>
-              <div><h4>Evaluación integral</h4><p>Diagnóstico completo antes de cada plan de tratamiento.</p></div>
+              <div class="pillar-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v8"/><path d="M16 4.5A2.5 2.5 0 0 0 18.5 2a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 18.5 7 2.5 2.5 0 0 0 16 4.5Z"/><circle cx="18.5" cy="19.5" r="2.5"/></svg></div>
+              <div><h4>Evaluación Clínica</h4><p>Diagnóstico completo y fundamentado previo al tratamiento.</p></div>
             </div>
             <div class="pillar">
-              <div class="pillar-ic">📋</div>
-              <div><h4>Planes personalizados</h4><p>Cada persona recibe un abordaje hecho a su medida.</p></div>
+              <div class="pillar-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 14h6"></path><path d="M9 10h6"></path><path d="M9 18h6"></path></svg></div>
+              <div><h4>Abordaje Personalizado</h4><p>Programas terapéuticos adaptados a las necesidades del paciente.</p></div>
             </div>
             <div class="pillar">
-              <div class="pillar-ic">🏃</div>
-              <div><h4>Actividad física y rehabilitación</h4><p>Kinesiología, masoterapia y entrenamiento guiado.</p></div>
+              <div class="pillar-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M5 22v-5l4-4v-4L6 8"/><path d="M9 13H4"/><path d="M14 22v-4l-4-4"/><path d="M17 17l-3-4 1-5 5 2"/></svg></div>
+              <div><h4>Rehabilitación Física</h4><p>Kinesiología, masoterapia clínica y entrenamiento funcional guiado.</p></div>
             </div>
             <div class="pillar">
-              <div class="pillar-ic">🌱</div>
-              <div><h4>Salud mental y bienestar</h4><p>Psicología clínica con enfoque cognitivo-conductual.</p></div>
+              <div class="pillar-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+              <div><h4>Salud Mental Integrada</h4><p>Psicología clínica orientada al bienestar emocional duradero.</p></div>
             </div>
           </div>
         </div>
@@ -633,34 +668,22 @@
         <p>Trabajamos en conjunto con diversas instituciones para acercar nuestros servicios de salud a más personas. Consulta por los beneficios exclusivos para afiliados.</p>
       </div>
       
-      <div class="convenios-grid">
-        <div class="convenio-card">
-          <div class="convenio-icon">🏥</div>
-          <div class="convenio-info">
-            <h4>Fonasa</h4>
-            <p>Valores preferenciales y bonificación en atenciones para todos los afiliados.</p>
-          </div>
-        </div>
-        <div class="convenio-card">
-          <div class="convenio-icon">🏢</div>
-          <div class="convenio-info">
-            <h4>Empresas y Cajas</h4>
-            <p>Convenios corporativos para potenciar el bienestar y salud de tu equipo de trabajo.</p>
-          </div>
-        </div>
-        <div class="convenio-card">
-          <div class="convenio-icon">🎓</div>
-          <div class="convenio-info">
-            <h4>Educación superior</h4>
-            <p>Descuentos especiales para estudiantes y funcionarios de instituciones en convenio.</p>
-          </div>
-        </div>
-        <div class="convenio-card">
-          <div class="convenio-icon">🤝</div>
-          <div class="convenio-info">
-            <h4>Red de Salud Local</h4>
-            <p>Derivaciones y trabajo coordinado con otros centros médicos de la región.</p>
-          </div>
+      <div class="convenios-slider">
+        <div class="convenios-slide-track">
+          <!-- 6 Unique slides -->
+          <div class="convenio-slide"><div class="convenio-card"><h4>Fonasa</h4><p>Valores preferenciales</p></div></div>
+          <div class="convenio-slide"><img src="img/city-kombat.png" alt="City Kombat Fight Center"></div>
+          <div class="convenio-slide"><img src="img/elixir-gym.png" alt="Elixir Gym"></div>
+          <div class="convenio-slide"><div class="convenio-card"><h4>Cajas de Compensación</h4><p>Convenios corporativos</p></div></div>
+          <div class="convenio-slide"><div class="convenio-card"><h4>Educación Superior</h4><p>Descuentos especiales</p></div></div>
+          <div class="convenio-slide"><div class="convenio-card"><h4>Red Salud Local</h4><p>Derivaciones médicas</p></div></div>
+          <!-- Duplicated for infinite loop -->
+          <div class="convenio-slide"><div class="convenio-card"><h4>Fonasa</h4><p>Valores preferenciales</p></div></div>
+          <div class="convenio-slide"><img src="img/city-kombat.png" alt="City Kombat Fight Center"></div>
+          <div class="convenio-slide"><img src="img/elixir-gym.png" alt="Elixir Gym"></div>
+          <div class="convenio-slide"><div class="convenio-card"><h4>Cajas de Compensación</h4><p>Convenios corporativos</p></div></div>
+          <div class="convenio-slide"><div class="convenio-card"><h4>Educación Superior</h4><p>Descuentos especiales</p></div></div>
+          <div class="convenio-slide"><div class="convenio-card"><h4>Red Salud Local</h4><p>Derivaciones médicas</p></div></div>
         </div>
       </div>
       
@@ -841,3 +864,5 @@
 
 </body>
 </html>
+
+
