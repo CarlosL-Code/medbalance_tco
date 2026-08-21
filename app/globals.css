@@ -428,3 +428,40 @@ footer {
   .contact-info-panel, .contact-form-panel { padding: 40px 24px; }
   .service-details { padding: 32px 24px; }
 }
+
+/* ======== Agendamiento Cal.com ======== */
+.agendamiento-section {
+  padding: 80px 0;
+  background: var(--surface);
+}
+.agendamiento-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.agendamiento-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+.agendamiento-header p {
+  color: var(--ink-light);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+.cal-embed-wrapper {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 32px;
+  width: 100%;
+  max-width: 1152px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  min-height: 600px;
+}
+@media (max-width: 768px) {
+  .cal-embed-wrapper {
+    padding: 16px;
+    border-radius: var(--radius);
+  }
+}

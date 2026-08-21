@@ -7,6 +7,8 @@ import {
   ArrowRight, Send, X, Star, Users, HeartPulse
 } from "lucide-react";
 
+import SeccionAgendamiento from "./components/SeccionAgendamiento";
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState("tab-psico");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -162,45 +164,7 @@ export default function Home() {
       </section>
 
       {/* Interactive Booking Form */}
-      <motion.div 
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="container" id="reserva"
-      >
-        <div className="booking-card">
-          <div className="booking-header">
-            <h3>Reserva de Horas Rápidas</h3>
-            <p>Selecciona tu especialidad y contáctanos para agendar tu atención médica.</p>
-          </div>
-          <form className="booking-form" action="https://wa.me/56920494925" method="get" target="_blank">
-            <div className="form-group">
-              <label>Especialidad</label>
-              <select name="text">
-                <option value="Hola, necesito agendar hora para Psicología">Psicología</option>
-                <option value="Hola, necesito agendar hora para Kinesiología">Kinesiología</option>
-                <option value="Hola, necesito agendar hora para Fonoaudiología">Fonoaudiología</option>
-                <option value="Hola, necesito agendar hora para Nutrición">Nutrición</option>
-                <option value="Hola, necesito agendar hora para Terapia Ocupacional">Terapia Ocupacional</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Previsión</label>
-              <select>
-                <option>Fonasa</option>
-                <option>Isapre</option>
-                <option>Particular</option>
-                <option>Convenio Empresa</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <button type="submit" className="btn btn-primary" style={{width: '100%', height: '52px'}}>
-                Agendar Ahora <ArrowRight size={18} />
-              </button>
-            </div>
-          </form>
-        </div>
-      </motion.div>
+      <SeccionAgendamiento />
 
       {/* Clínica / Nosotros */}
       <section className="nosotros-section" id="clinica">
