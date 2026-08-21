@@ -1,5 +1,6 @@
 import { Lato, Merriweather } from 'next/font/google';
 import './globals.css';
+import BotonAgendar from './components/BotonAgendar';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -23,7 +24,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${lato.variable} ${merriweather.variable}`}>
-      <body className={lato.className}>{children}</body>
+      <body className={lato.className}>
+        {children}
+        <BotonAgendar />
+      </body>
     </html>
   );
 }
