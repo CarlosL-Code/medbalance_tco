@@ -420,8 +420,30 @@
     .contact-wrap{grid-template-columns:1fr;padding:36px 26px;}
     section{padding:64px 0;}
     .wrap{padding:0 20px;}
-    /* Table overflow for mobile */
+        /* Table overflow for mobile */
     .table-container { overflow-x: auto; margin-top: 10px; }
+  }
+  @media (max-width: 560px){
+    .table-container { overflow-x: visible; }
+    .brand img{transform: scale(1.15);} /* Reduce scale slightly on small screens */
+    .brand-text{font-size:1rem;}
+    .nav-cta .btn{display:none;} /* Hide the header CTA text on small phones to save space */
+    .hero h1{font-size: 2.2rem;}
+    .team-grid{grid-template-columns:1fr;}
+    .hero-badges{gap:22px; flex-direction:column; align-items:flex-start;}
+    .hero-badge{text-align:left;}
+    .nosotros-art {padding: 24px;}
+    .nosotros-art blockquote {font-size: 1.15rem;}
+    .contact-actions {flex-direction: column; align-items: stretch;}
+    .contact-actions .btn {justify-content: center;}
+    /* Make tables stack nicely on very small screens */
+    table.price-table { border-spacing: 0 10px; }
+    table.price-table th {font-size: 0.6rem; padding: 0 6px 4px; letter-spacing:0;}
+    table.price-table td {padding: 14px 8px; font-size: 0.8rem;}
+    table.price-table td:first-child { border-radius: 12px 0 0 12px; }
+    table.price-table td:last-child { border-radius: 0 12px 12px 0; }
+    .service-card { padding: 24px 18px; }
+    .fonasa-badge { align-items:flex-start; padding: 12px; }
   }
   @media (max-width: 560px){
     .brand img{transform: scale(1.15);} /* Reduce scale slightly on small screens */
@@ -481,7 +503,7 @@
         </div>
         <div class="hero-badges">
           <div class="hero-badge"><div class="num">5</div><div class="lbl">áreas de salud bajo un mismo techo</div></div>
-          <div class="hero-badge"><div class="num">Fonasa</div><div class="lbl">valores especiales para afiliados</div></div>
+          <div class="hero-badge"><img src="img/logo-fonasa.jpg" style="height:32px; width:auto; border-radius:4px;" alt="Fonasa"><div class="lbl">valores especiales para afiliados</div></div>
           <div class="hero-badge"><div class="num">100%</div><div class="lbl">atención profesional y personalizada</div></div>
         </div>
       </div>
@@ -688,14 +710,14 @@
       <div class="convenios-slider">
         <div class="convenios-slide-track">
           <!-- 6 Unique slides -->
-          <div class="convenio-slide"><div class="convenio-card"><h4>Fonasa</h4><p>Valores preferenciales</p></div></div>
+          <div class="convenio-slide"><img src="img/logo-fonasa.jpg" alt="Fonasa"></div>
           <div class="convenio-slide"><img src="img/city-kombat.png" alt="City Kombat Fight Center"></div>
           <div class="convenio-slide"><img src="img/elixir-gym.png" alt="Elixir Gym"></div>
           <div class="convenio-slide"><div class="convenio-card"><h4>Cajas de Compensación</h4><p>Convenios corporativos</p></div></div>
           <div class="convenio-slide"><div class="convenio-card"><h4>Educación Superior</h4><p>Descuentos especiales</p></div></div>
           <div class="convenio-slide"><div class="convenio-card"><h4>Red Salud Local</h4><p>Derivaciones médicas</p></div></div>
           <!-- Duplicated for infinite loop -->
-          <div class="convenio-slide"><div class="convenio-card"><h4>Fonasa</h4><p>Valores preferenciales</p></div></div>
+          <div class="convenio-slide"><img src="img/logo-fonasa.jpg" alt="Fonasa"></div>
           <div class="convenio-slide"><img src="img/city-kombat.png" alt="City Kombat Fight Center"></div>
           <div class="convenio-slide"><img src="img/elixir-gym.png" alt="Elixir Gym"></div>
           <div class="convenio-slide"><div class="convenio-card"><h4>Cajas de Compensación</h4><p>Convenios corporativos</p></div></div>
@@ -881,6 +903,7 @@
 
 </body>
 </html>
+
 
 
 
