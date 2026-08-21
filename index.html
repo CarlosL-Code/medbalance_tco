@@ -237,30 +237,29 @@
   .agenda-pro-btn { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 10px 24px; background: var(--surface); border: 1px solid var(--border); color: var(--teal-deep); font-weight: 700; font-size: 0.85rem; border-radius: 8px; transition: all 0.3s; }
   .agenda-pro-btn:hover { background: var(--teal-deep); color: var(--white); border-color: var(--teal-deep); }
 
-  /* Convenios Marquee Premium */
-  .convenios-section { background: var(--teal-deep); color: var(--white); padding: 80px 0; overflow: hidden; }
+  /* Convenios Premium Grid */
+  .convenios-section { background: var(--teal-deep); color: var(--white); padding: 80px 0; }
   .convenios-section .section-header h2 { color: var(--white); }
   .convenios-section .section-header p { color: rgba(255,255,255,0.7); }
-  .marquee { position: relative; width: 100%; overflow: hidden; padding: 20px 0; }
-  .marquee::before, .marquee::after {
-    content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2;
+  
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
   }
-  .marquee::before { left: 0; background: linear-gradient(to right, var(--teal-deep), transparent); }
-  .marquee::after { right: 0; background: linear-gradient(to left, var(--teal-deep), transparent); }
-  .marquee-track { display: flex; width: max-content; animation: scroll-left 30s linear infinite; gap: 30px; }
-  .marquee-track:hover { animation-play-state: paused; }
   
   .partner-card {
-    background: var(--white); border-radius: 12px; height: 100px; width: 240px;
+    background: var(--white); border-radius: 12px; height: 120px; width: 100%;
     display: flex; align-items: center; justify-content: center; padding: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); flex-shrink: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.3s;
   }
+  .partner-card:hover { transform: translateY(-4px); }
   .partner-card img { max-height: 100%; max-width: 100%; object-fit: contain; }
   .partner-card.text-card { flex-direction: column; text-align: center; color: var(--ink); padding: 16px; }
   .partner-card.text-card h4 { font-size: 1rem; color: var(--teal-deep); margin-bottom: 4px; }
   .partner-card.text-card p { font-size: 0.75rem; color: var(--ink-light); }
-
-  @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 15px)); } }
 
   /* Clínica */
   .nosotros-section { background: var(--surface); }
