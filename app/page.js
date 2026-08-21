@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   MapPin, Phone, Menu, ShieldCheck, CheckCircle2, 
-  ArrowRight, Send, X, Star
+  ArrowRight, Send, X, Star, Users, HeartPulse
 } from "lucide-react";
 
 export default function Home() {
@@ -117,17 +117,43 @@ export default function Home() {
             <div className="orbit-glow"></div>
             <div className="orbit-ring ring-1">
               <motion.div 
-                className="orbit-node node-1"
+                style={{ width: '100%', height: '100%', position: 'absolute' }}
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-                style={{ transformOrigin: "50% 250px" }} 
-                // A better approach for real orbit is to animate the ring, but this is a simplified visual.
               >
-                <div style={{transform: "rotate(-360deg)"}}><ShieldCheck size={28} /></div>
+                <div className="orbit-node node-1" style={{ top: -32, left: '50%', marginLeft: -32, transform: 'none' }}>
+                  <motion.div animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 40, ease: "linear" }}>
+                    <ShieldCheck size={28} />
+                  </motion.div>
+                </div>
               </motion.div>
             </div>
-            <div className="orbit-ring ring-2"></div>
-            <div className="orbit-ring ring-3"></div>
+            <div className="orbit-ring ring-2">
+              <motion.div 
+                style={{ width: '100%', height: '100%', position: 'absolute' }}
+                animate={{ rotate: -360 }}
+                transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
+              >
+                <div className="orbit-node node-2" style={{ top: '50%', right: -28, marginTop: -28, transform: 'none', color: 'var(--orange)' }}>
+                  <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 35, ease: "linear" }}>
+                    <Users size={24} />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+            <div className="orbit-ring ring-3">
+              <motion.div 
+                style={{ width: '100%', height: '100%', position: 'absolute' }}
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+              >
+                <div className="orbit-node node-3" style={{ bottom: -28, left: '50%', marginLeft: -28, transform: 'none' }}>
+                  <motion.div animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 25, ease: "linear" }}>
+                    <HeartPulse size={24} />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
             <div className="orbit-center">
               <img src="/img/logo-sitio-web.png" alt="Logo MedBalance" />
             </div>
