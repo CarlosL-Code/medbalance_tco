@@ -163,9 +163,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Interactive Booking Form */}
-      <SeccionAgendamiento />
-
       {/* Clínica / Nosotros */}
       <section className="nosotros-section" id="clinica">
         <div className="container">
@@ -552,6 +549,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Agendamiento Cal.com */}
+      <SeccionAgendamiento />
 
       {/* Formulario Premium */}
       <section className="contact-section" id="contacto">

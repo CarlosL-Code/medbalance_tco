@@ -11,7 +11,8 @@ export default function SeccionAgendamiento() {
       cal("ui", {
         styles: { branding: { brandColor: "#047857" } }, // Nuestro color var(--teal)
         hideEventTypeDetails: false,
-        layout: "month_view"
+        layout: "month_view",
+        theme: "light"
       });
     })();
   }, []);
@@ -37,7 +38,7 @@ export default function SeccionAgendamiento() {
             namespace="consulta-nutricional"
             calLink="agendamiento-clinica/consulta-nutricional"
             style={{width:"100%", height:"100%", overflow:"scroll"}}
-            config={{layout: 'month_view'}}
+            config={{layout: 'month_view', theme: 'light'}}
           />
         </div>
       </div>
