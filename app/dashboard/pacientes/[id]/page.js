@@ -41,7 +41,12 @@ export default function FichaTecnica({ params }) {
             <span className="dash-badge bg-red">Alergia: {paciente.allergies}</span>
           </div>
         </div>
-        <button className="btn btn-outline ml-auto" style={{display: 'flex', gap: '8px'}}><Edit size={16} /> Editar Perfil</button>
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+          <button className="btn btn-outline" style={{display: 'flex', gap: '8px'}}><Edit size={16} /> Editar Perfil</button>
+          <button className="btn btn-primary" style={{display: 'flex', gap: '8px', background: 'var(--ink)'}} onClick={() => alert("Función de exportación a PDF en desarrollo.")}>
+            <FileText size={16} /> Exportar PDF
+          </button>
+        </div>
       </div>
 
       <div className="ficha-grid">
