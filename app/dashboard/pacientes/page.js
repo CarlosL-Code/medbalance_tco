@@ -1,19 +1,33 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Search, Filter, ChevronRight, FileText } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function PacientesList() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [pacientes, setPacientes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const pacientes = [
-    { id: 1, name: "María González", rut: "18.123.456-7", lastVisit: "15/08/2026", type: "Kinesiología" },
-    { id: 2, name: "Juan Pérez", rut: "12.345.678-9", lastVisit: "20/08/2026", type: "Nutrición" },
-    { id: 3, name: "Camila Rojas", rut: "19.987.654-3", lastVisit: "21/08/2026", type: "Terapia Ocupacional" },
-    { id: 4, name: "Luis Tapia", rut: "15.555.444-2", lastVisit: "10/08/2026", type: "Psicología" }
-  ];
+  useEffect(() => {
+    async function loadPacientes() {
+      const { data, error } = await supabase
+        .from('pacientes')
+        .select('*')
+        .order('fecha_creacion', { ascending: false });
+      
+      if (!error && data) {
+        setPacientes(data);
+      }
+      setLoading(false);
+    }
+    loadPacientes();
+  }, []);
 
-  const filtered = pacientes.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()) || p.rut.includes(searchTerm));
+  const filtered = pacientes.filter(p => 
+    p.nombre_completo.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    p.rut.includes(searchTerm)
+  );
 
   return (
     <div className="dash-content fade-in">
@@ -53,12 +67,18 @@ export default function PacientesList() {
               </tr>
             </thead>
             <tbody>
-              {filtered.map(p => (
+              {loading ? (
+                <tr>
+                  <td colSpan="5" className="text-center" style={{padding: '32px', color: 'var(--ink-light)'}}>
+                    Cargando pacientes...
+                  </td>
+                </tr>
+              ) : filtered.map(p => (
                 <tr key={p.id}>
-                  <td><strong>{p.name}</strong></td>
+                  <td><strong>{p.nombre_completo}</strong></td>
                   <td>{p.rut}</td>
-                  <td>{p.lastVisit}</td>
-                  <td><span className="dash-badge">{p.type}</span></td>
+                  <td>-</td>
+                  <td><span className="dash-badge">-</span></td>
                   <td>
                     <Link href={`/dashboard/pacientes/${p.id}`} className="btn-icon text-teal">
                       <FileText size={18} /> Ver Ficha
@@ -66,7 +86,7 @@ export default function PacientesList() {
                   </td>
                 </tr>
               ))}
-              {filtered.length === 0 && (
+              {!loading && filtered.length === 0 && (
                 <tr>
                   <td colSpan="5" className="text-center" style={{padding: '32px', color: 'var(--ink-light)'}}>
                     No se encontraron pacientes
