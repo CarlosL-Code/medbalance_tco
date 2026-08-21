@@ -227,24 +227,35 @@
   .agenda-pro-btn:hover { background: var(--teal-deep); color: var(--white); border-color: var(--teal-deep); }
 
   /* Convenios Premium Grid */
-  .convenios-section { background: var(--teal-deep); color: var(--white); padding: 80px 0; }
-  .convenios-section .section-header h2 { color: var(--white); }
-  .convenios-section .section-header p { color: rgba(255,255,255,0.7); }
+  /* Convenios Premium Marquee */
+  .convenios-section { background: linear-gradient(135deg, #f8fafc 0%, #eaf5f3 100%); color: var(--ink); padding: 80px 0; overflow: hidden; }
+  .convenios-section .section-header h2 { color: var(--teal-deep); }
+  .convenios-section .section-header p { color: var(--ink-light); }
   
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  .marquee-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    /* Sombras en los bordes para un efecto premium */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
     gap: 24px;
+    padding: 20px 0;
     align-items: center;
-    justify-content: center;
   }
   
   .partner-card {
-    background: var(--white); border-radius: 12px; height: 120px; width: 100%;
-    display: flex; align-items: center; justify-content: center; padding: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.3s;
+    background: var(--white); border-radius: 16px; height: 120px; min-width: 240px;
+    display: flex; align-items: center; justify-content: center; padding: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(21,127,104,0.1);
   }
-  .partner-card:hover { transform: translateY(-4px); }
+  .partner-card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
   .partner-card img { max-height: 100%; max-width: 100%; object-fit: contain; }
   .partner-card.text-card { flex-direction: column; text-align: center; color: var(--ink); padding: 16px; }
   .partner-card.text-card h4 { font-size: 1rem; color: var(--teal-deep); margin-bottom: 4px; }

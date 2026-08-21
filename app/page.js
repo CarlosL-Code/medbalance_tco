@@ -436,26 +436,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Convenios Premium Grid */}
+      {/* Convenios Premium Marquee */}
       <section className="convenios-section" id="convenios">
         <div className="container">
           <div className="section-header">
-            <span className="tagline" style={{color:'rgba(255,255,255,0.7)'}}>Seguros y Convenios</span>
+            <span className="tagline">Seguros y Convenios</span>
             <h2>Red de Alianzas Médicas</h2>
             <p>Trabajamos en sinergia con instituciones destacadas para brindarte acceso preferencial.</p>
           </div>
+        </div>
           
-          <div className="partners-grid">
+        <div className="marquee-container">
+          <motion.div 
+            className="marquee-track"
+            animate={{ x: [0, -1032] }}
+            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+          >
+            {/* Set 1 */}
             <div className="partner-card"><img src="/img/logo-fonasa.jpg" alt="Fonasa" /></div>
-            <div className="partner-card" style={{background:'#111'}}><img src="/img/city-kombat.png" alt="City Kombat" /></div>
-            <div className="partner-card" style={{background:'#232d36'}}><img src="/img/elixir-gym.png" alt="Elixir Gym" /></div>
+            <div className="partner-card"><img src="/img/city-kombat.png" alt="City Kombat" /></div>
+            <div className="partner-card"><img src="/img/elixir-gym.png" alt="Elixir Gym" /></div>
             <div className="partner-card text-card"><h4>Cajas de Compensación</h4><p>Beneficios Corporativos</p></div>
             <div className="partner-card text-card"><h4>Educación Superior</h4><p>Convenio Estudiantes</p></div>
             <div className="partner-card text-card"><h4>Red Salud Local</h4><p>Derivaciones Clínicas</p></div>
-          </div>
+            {/* Set 2 (Duplicado para efecto infinito) */}
+            <div className="partner-card"><img src="/img/logo-fonasa.jpg" alt="Fonasa" /></div>
+            <div className="partner-card"><img src="/img/city-kombat.png" alt="City Kombat" /></div>
+            <div className="partner-card"><img src="/img/elixir-gym.png" alt="Elixir Gym" /></div>
+            <div className="partner-card text-card"><h4>Cajas de Compensación</h4><p>Beneficios Corporativos</p></div>
+            <div className="partner-card text-card"><h4>Educación Superior</h4><p>Convenio Estudiantes</p></div>
+            <div className="partner-card text-card"><h4>Red Salud Local</h4><p>Derivaciones Clínicas</p></div>
+          </motion.div>
+        </div>
           
+        <div className="container">
           <div style={{textAlign: 'center', marginTop: '60px'}}>
-            <a href="https://wa.me/56920494925" className="btn btn-outline" style={{borderColor:'rgba(255,255,255,0.4)', color:'#fff'}}>Establecer Alianza Corporativa</a>
+            <a href="https://wa.me/56920494925" className="btn btn-outline">Establecer Alianza Corporativa</a>
           </div>
         </div>
       </section>
