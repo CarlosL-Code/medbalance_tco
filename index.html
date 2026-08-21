@@ -407,8 +407,11 @@
   @media (max-width: 940px){
     .nav-links{display:none;}
     .burger{display:block;}
-    .hero .wrap{grid-template-columns:1fr;}
-    .orbit-wrap{max-width:340px;margin:0 auto;}
+    .hero .wrap{grid-template-columns:1fr; text-align:center;}
+    .hero p.lead{margin-left:auto; margin-right:auto;}
+    .hero-actions{justify-content:center;}
+    .hero-badges{justify-content:center;}
+    .orbit-wrap{max-width:340px;margin:40px auto 0;}
     .nosotros-grid{grid-template-columns:1fr;}
     .pillars{grid-template-columns:1fr;}
     .service-card{grid-template-columns:1fr;padding:28px;}
@@ -417,10 +420,24 @@
     .contact-wrap{grid-template-columns:1fr;padding:36px 26px;}
     section{padding:64px 0;}
     .wrap{padding:0 20px;}
+    /* Table overflow for mobile */
+    .table-container { overflow-x: auto; margin-top: 10px; }
   }
   @media (max-width: 560px){
-    .team-grid{grid-template-columns:1fr 1fr;}
-    .hero-badges{gap:18px;}
+    .brand img{transform: scale(1.15);} /* Reduce scale slightly on small screens */
+    .brand-text{font-size:1rem;}
+    .nav-cta .btn{display:none;} /* Hide the header CTA text on small phones to save space */
+    .hero h1{font-size: 2.2rem;}
+    .team-grid{grid-template-columns:1fr;}
+    .hero-badges{gap:18px; flex-direction:column; align-items:center;}
+    .hero-badge{text-align:left;}
+    .nosotros-art {padding: 24px;}
+    .nosotros-art blockquote {font-size: 1.15rem;}
+    .contact-actions {flex-direction: column; align-items: stretch;}
+    .contact-actions .btn {justify-content: center;}
+    /* Make tables stack on very small screens */
+    table.price-table th {font-size: 0.65rem; padding: 0 10px 6px;}
+    table.price-table td {padding: 12px 10px; font-size: 0.85rem;}
   }
 </style>
 </head>
@@ -546,7 +563,7 @@
             <div class="fonasa-badge">✅ <span><b>Valor convenio</b> disponible con certificado Fonasa o derivación interna.</span></div>
           </div>
           <div>
-            <table class="price-table">
+            <div class="table-container"><table class="price-table">
               <thead><tr><th>Prestación</th><th class="num">Particular</th><th class="num">Convenio</th></tr></thead>
               <tbody>
                 <tr><td>Sesión psicológica adulto individual</td><td class="num price-particular">$30.000</td><td class="num price-convenio">$20.000</td></tr>
@@ -555,7 +572,7 @@
                 <tr><td>Terapia de pareja (por sesión)</td><td class="num price-particular">$55.000</td><td class="num price-convenio">$45.000</td></tr>
                 <tr><td>Evaluación y tratamiento infanto juvenil</td><td class="num price-particular">$30.000</td><td class="num price-convenio">$25.000</td></tr>
               </tbody>
-            </table>
+            </table></div>
             <p class="table-note">*Para acceder al valor convenio debes contar con certificado de afiliación Fonasa, ser derivado por otro servicio MedBalance o algún centro en convenio.</p>
           </div>
         </div>
@@ -571,7 +588,7 @@
             <div class="fonasa-badge">✅ <span><b>Valor convenio</b> disponible con certificado Fonasa o derivación interna.</span></div>
           </div>
           <div>
-            <table class="price-table">
+            <div class="table-container"><table class="price-table">
               <thead><tr><th>Prestación</th><th class="num">Particular</th><th class="num">Convenio</th></tr></thead>
               <tbody>
                 <tr><td>Sesión de kinesiología</td><td class="num price-particular">$25.000</td><td class="num price-convenio">$20.000</td></tr>
@@ -579,7 +596,7 @@
                 <tr><td>Sesión de masoterapia</td><td class="num price-particular">$16.000</td><td class="num price-convenio">$13.000</td></tr>
                 <tr><td>Entrenamiento personalizado (6 sesiones)</td><td class="num price-particular">$72.000</td><td class="num price-convenio">$58.000</td></tr>
               </tbody>
-            </table>
+            </table></div>
             <p class="table-note">*Para acceder al valor convenio debes contar con certificado de afiliación Fonasa, ser derivado por otro servicio MedBalance o algún centro en convenio.</p>
           </div>
         </div>
@@ -595,7 +612,7 @@
             <div class="fonasa-badge">✅ <span><b>Valor convenio</b> disponible con certificado Fonasa o derivación interna.</span></div>
           </div>
           <div>
-            <table class="price-table">
+            <div class="table-container"><table class="price-table">
               <thead><tr><th>Prestación</th><th class="num">Valor</th><th class="num">Convenio</th></tr></thead>
               <tbody>
                 <tr><td>Evaluación fonoaudiológica inicial</td><td class="num price-particular">$25.000</td><td class="num price-convenio">$20.000</td></tr>
@@ -603,7 +620,7 @@
                 <tr><td>Otoscopía + video otoscopía (ambos oídos)</td><td class="num price-particular">$15.000</td><td class="num price-convenio">$12.000</td></tr>
                 <tr><td>Otoscopía + video otoscopía + lavado de oídos</td><td class="num price-particular">$20.000</td><td class="num price-convenio">$16.000</td></tr>
               </tbody>
-            </table>
+            </table></div>
             <p class="table-note">*Para acceder al valor convenio debes contar con certificado de afiliación Fonasa, ser derivado por otro servicio MedBalance o algún centro en convenio.</p>
           </div>
         </div>
@@ -619,7 +636,7 @@
             <div class="fonasa-badge">✅ <span><b>Valor convenio</b> disponible con certificado Fonasa o derivación interna.</span></div>
           </div>
           <div>
-            <table class="price-table">
+            <div class="table-container"><table class="price-table">
               <thead><tr><th>Prestación</th><th class="num">Particular</th><th class="num">Convenio</th></tr></thead>
               <tbody>
                 <tr><td>Evaluación de composición corporal</td><td class="num price-particular">$15.000</td><td class="num price-convenio">$12.000</td></tr>
@@ -627,7 +644,7 @@
                 <tr><td>Plan dúo</td><td class="num price-particular">$35.000</td><td class="num price-convenio">$28.000</td></tr>
                 <tr><td>Plan familiar</td><td class="num price-particular">desde $45.000</td><td class="num price-convenio">desde $36.000</td></tr>
               </tbody>
-            </table>
+            </table></div>
             <p class="table-note">*Para acceder al valor convenio debes contar con certificado de afiliación Fonasa, ser derivado por otro servicio MedBalance o algún centro en convenio.</p>
           </div>
         </div>
@@ -643,14 +660,14 @@
             <div class="fonasa-badge">✅ <span><b>Valor convenio</b> disponible con certificado Fonasa o derivación interna.</span></div>
           </div>
           <div>
-            <table class="price-table">
+            <div class="table-container"><table class="price-table">
               <thead><tr><th>Prestación</th><th class="num">Particular</th><th class="num">Convenio</th></tr></thead>
               <tbody>
                 <tr><td>Atención de terapia ocupacional</td><td class="num price-particular">$25.000</td><td class="num price-convenio">$20.000</td></tr>
                 <tr><td>Evaluación e informe camuflaje social (CAT-Q)</td><td class="num price-particular">$25.000</td><td class="num price-convenio">$20.000</td></tr>
                 <tr><td>Evaluación e informe perfil sensorial (Dunn)</td><td class="num price-particular">$25.000</td><td class="num price-convenio">$20.000</td></tr>
               </tbody>
-            </table>
+            </table></div>
             <p class="table-note">*La evaluación de perfil sensorial puede requerir dos sesiones. Valor convenio con certificado Fonasa, derivación interna o centro en convenio.</p>
           </div>
         </div>
@@ -864,5 +881,6 @@
 
 </body>
 </html>
+
 
 
