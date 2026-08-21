@@ -380,29 +380,26 @@ header.scrolled {
 
 /* ======== Footer Premium ======== */
 footer { 
-  background: linear-gradient(180deg, var(--ink) 0%, #080c16 100%); 
-  color: rgba(255,255,255,0.7); 
-  padding: 100px 0 40px; 
+  background: var(--white); 
+  color: var(--ink); 
+  padding: 60px 0 20px; 
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--border);
 }
-.footer-bg-glow {
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--teal-light), transparent);
-  opacity: 0.5;
-}
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; margin-bottom: 80px; position: relative; z-index: 1;}
-.footer-brand { display: inline-block; margin-bottom: 32px; background: var(--white); padding: 16px 32px; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.footer-brand img { height: 56px; object-fit: contain; }
-.footer-links h4 { color: var(--white); margin-bottom: 32px; font-size: 1.15rem; font-family: var(--font-lato), sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand { display: block; margin-bottom: 24px; }
+.footer-brand img { height: 60px; object-fit: contain; }
+.footer-links h4 { color: var(--teal-deep); margin-bottom: 20px; font-size: 1.1rem; font-family: var(--font-lato), sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
 .footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 16px; }
-.footer-links a { transition: color 0.2s; }
-.footer-links a:hover { color: var(--teal-light); }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 0.9rem; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: var(--ink-light); transition: color 0.2s; font-size: 0.95rem;}
+.footer-links a:hover { color: var(--teal); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--ink-light); flex-wrap: wrap; gap: 16px;}
+.footer-bottom strong { color: var(--teal-deep); }
+.schedule-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; color: var(--ink-light); }
+.schedule-table td { padding: 4px 0; border-bottom: 1px dashed var(--border); }
+.schedule-table td:last-child { text-align: right; font-weight: 700; color: var(--ink); }
 
 /* ======== Responsiveness ======== */
 @media (max-width: 1024px) {

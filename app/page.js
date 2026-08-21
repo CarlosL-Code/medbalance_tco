@@ -598,43 +598,52 @@ export default function Home() {
 
       {/* Footer */}
       <footer>
-        <div className="footer-bg-glow"></div>
         <div className="container">
           <div className="footer-grid">
             <div>
               <a href="#" className="footer-brand">
                 <img src="/img/logo-sitio-web.png" alt="MedBalance" />
               </a>
-              <p style={{marginBottom:'24px', maxWidth:'300px', fontSize:'1rem', lineHeight: '1.8'}}>Centro de salud integral en Temuco. Nuestro compromiso es tu equilibrio físico y mental a través de un servicio clínico de excelencia.</p>
+              <p style={{marginBottom:'24px', maxWidth:'300px', fontSize:'0.95rem', lineHeight: '1.8', color: 'var(--ink-light)'}}>Centro de salud integral en Temuco. Nuestro compromiso es tu equilibrio físico y mental a través de un servicio clínico de excelencia.</p>
               <div style={{display:'flex', gap:'16px'}}>
-                <a href="https://instagram.com/medbalance_tco" target="_blank" style={{color:'var(--white)', opacity:0.8, background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%'}}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <a href="https://instagram.com/medbalance_tco" target="_blank" style={{color:'var(--teal-deep)', background: 'var(--surface)', padding: '12px', borderRadius: '50%', border: '1px solid var(--border)'}}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </a>
-                <a href="https://wa.me/56920494925" target="_blank" style={{color:'var(--white)', opacity:0.8, background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%'}}>
-                  <Phone size={24} />
+                <a href="https://wa.me/56920494925" target="_blank" style={{color:'var(--teal-deep)', background: 'var(--surface)', padding: '12px', borderRadius: '50%', border: '1px solid var(--border)'}}>
+                  <Phone size={20} />
                 </a>
               </div>
             </div>
+            
             <div className="footer-links">
-              <h4>Clínica</h4>
-              <ul>
-                <li><a href="#clinica">Nosotros</a></li>
-                <li><a href="#servicios">Especialidades</a></li>
-                <li><a href="#equipo">Equipo Médico</a></li>
-                <li><a href="#convenios">Seguros y Convenios</a></li>
-              </ul>
+              <h4>Horarios de Atención</h4>
+              <table className="schedule-table">
+                <tbody>
+                  <tr><td>Lunes a Viernes</td><td>09:00 - 20:00</td></tr>
+                  <tr><td>Sábado</td><td>09:00 - 14:00</td></tr>
+                  <tr><td>Domingo</td><td>Cerrado</td></tr>
+                </tbody>
+              </table>
             </div>
+
             <div className="footer-links">
-              <h4>Contacto Directo</h4>
+              <h4>Contacto</h4>
               <ul>
-                <li style={{display:'flex',gap:'12px',fontSize:'0.95rem', alignItems: 'center'}}><MapPin size={18} opacity={0.6}/> Ramón Freire 630, Of 13</li>
-                <li style={{display:'flex',gap:'12px',fontSize:'0.95rem', alignItems: 'center'}}><Phone size={18} opacity={0.6}/> +56 9 2049 4925</li>
+                <li style={{display:'flex',gap:'12px', alignItems: 'flex-start', color:'var(--ink)'}}>
+                  <MapPin size={18} color="var(--teal)" style={{marginTop:'4px'}}/> 
+                  <span>Ramón Freire 630<br/><span style={{fontSize:'0.85rem', color:'var(--ink-light)'}}>Block 8, Of 13, Temuco</span></span>
+                </li>
+                <li style={{display:'flex',gap:'12px', alignItems: 'center', marginTop: '16px', color:'var(--ink)'}}>
+                  <Phone size={18} color="var(--teal)"/> 
+                  <span>+56 9 2049 4925</span>
+                </li>
               </ul>
             </div>
           </div>
+          
           <div className="footer-bottom">
-            <p>© {new Date().getFullYear()} Clínica MedBalance. Todos los derechos reservados.</p>
-            <p style={{opacity: 0.5}}>Diseño Premium Integral</p>
+            <p>© {new Date().getFullYear()} <strong>Clínica MedBalance</strong>. Todos los derechos reservados.</p>
+            <p>Desarrollado por <strong>[Tu Nombre/Agencia]</strong></p>
           </div>
         </div>
       </footer>
