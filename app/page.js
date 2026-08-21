@@ -597,25 +597,47 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer>
+      <footer style={{ position: 'relative' }}>
         <div className="container">
           <div className="footer-grid">
-            <div>
-              <a href="#" className="footer-brand">
-                <img src="/img/logo-sitio-web.png" alt="MedBalance" />
+            
+            {/* Column 1 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <a href="#" className="footer-brand" style={{display:'inline-block'}}>
+                <img src="/img/logo-sitio-web.png" alt="MedBalance" style={{background:'var(--white)', padding:'8px 16px', borderRadius:'12px', boxShadow:'var(--shadow-sm)'}} />
               </a>
               <p style={{marginBottom:'24px', maxWidth:'300px', fontSize:'0.95rem', lineHeight: '1.8', color: 'var(--ink-light)'}}>Centro de salud integral en Temuco. Nuestro compromiso es tu equilibrio físico y mental a través de un servicio clínico de excelencia.</p>
               <div style={{display:'flex', gap:'16px'}}>
-                <a href="https://instagram.com/medbalance_tco" target="_blank" style={{color:'var(--teal-deep)', background: 'var(--surface)', padding: '12px', borderRadius: '50%', border: '1px solid var(--border)'}}>
+                <motion.a 
+                  whileHover={{ scale: 1.1, y: -4, boxShadow: '0 10px 20px rgba(4,120,87,0.15)', borderColor: 'var(--teal-light)', color: 'var(--teal)' }}
+                  href="https://instagram.com/medbalance_tco" target="_blank" 
+                  style={{color:'var(--teal-deep)', background: 'var(--white)', padding: '12px', borderRadius: '50%', border: '1px solid var(--border)', transition: 'all 0.3s'}}
+                >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="https://wa.me/56920494925" target="_blank" style={{color:'var(--teal-deep)', background: 'var(--surface)', padding: '12px', borderRadius: '50%', border: '1px solid var(--border)'}}>
+                </motion.a>
+                <motion.a 
+                  whileHover={{ scale: 1.1, y: -4, boxShadow: '0 10px 20px rgba(4,120,87,0.15)', borderColor: 'var(--teal-light)', color: 'var(--teal)' }}
+                  href="https://wa.me/56920494925" target="_blank" 
+                  style={{color:'var(--teal-deep)', background: 'var(--white)', padding: '12px', borderRadius: '50%', border: '1px solid var(--border)', transition: 'all 0.3s'}}
+                >
                   <Phone size={20} />
-                </a>
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
             
-            <div className="footer-links">
+            {/* Column 2 */}
+            <motion.div 
+              className="footer-links"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               <h4>Horarios de Atención</h4>
               <table className="schedule-table">
                 <tbody>
@@ -624,27 +646,47 @@ export default function Home() {
                   <tr><td>Domingo</td><td>Cerrado</td></tr>
                 </tbody>
               </table>
-            </div>
+            </motion.div>
 
-            <div className="footer-links">
+            {/* Column 3 */}
+            <motion.div 
+              className="footer-links"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <h4>Contacto</h4>
               <ul>
                 <li style={{display:'flex',gap:'12px', alignItems: 'flex-start', color:'var(--ink)'}}>
-                  <MapPin size={18} color="var(--teal)" style={{marginTop:'4px'}}/> 
+                  <div style={{background:'var(--white)', padding:'8px', borderRadius:'8px', border:'1px solid var(--border)', display:'flex', marginTop:'2px'}}>
+                    <MapPin size={18} color="var(--teal)" /> 
+                  </div>
                   <span>Ramón Freire 630<br/><span style={{fontSize:'0.85rem', color:'var(--ink-light)'}}>Block 8, Of 13, Temuco</span></span>
                 </li>
                 <li style={{display:'flex',gap:'12px', alignItems: 'center', marginTop: '16px', color:'var(--ink)'}}>
-                  <Phone size={18} color="var(--teal)"/> 
+                  <div style={{background:'var(--white)', padding:'8px', borderRadius:'8px', border:'1px solid var(--border)', display:'flex'}}>
+                    <Phone size={18} color="var(--teal)" /> 
+                  </div>
                   <span>+56 9 2049 4925</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
+
           </div>
           
-          <div className="footer-bottom">
+          <motion.div 
+            className="footer-bottom"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <p>© {new Date().getFullYear()} <strong>Clínica MedBalance</strong>. Todos los derechos reservados.</p>
-            <p>Desarrollado por <strong>[Tu Nombre/Agencia]</strong></p>
-          </div>
+            <p style={{display:'flex', alignItems:'center', gap:'8px'}}>
+              Desarrollado con <Star size={14} fill="var(--orange)" color="var(--orange)" /> por <strong>CarlosL-Code</strong>
+            </p>
+          </motion.div>
         </div>
       </footer>
     </main>
