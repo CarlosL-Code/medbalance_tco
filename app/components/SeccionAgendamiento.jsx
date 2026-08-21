@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export default function SeccionAgendamiento() {
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi({"namespace":"consulta-nutricional"});
+      const cal = await getCalApi({"namespace":"medbalance"});
       cal("ui", {
         styles: { branding: { brandColor: "#047857" } }, // Nuestro color var(--teal)
         hideEventTypeDetails: false,
@@ -30,13 +30,13 @@ export default function SeccionAgendamiento() {
         <div className="agendamiento-header text-center">
           <span className="tagline">Reserva de Horas Rápidas</span>
           <h2>Agenda tu Consulta en Línea</h2>
-          <p>Selecciona la fecha y hora que mejor te acomode para tu atención clínica.</p>
+          <p>Selecciona el servicio y profesional que mejor se adapte a tus necesidades para comenzar tu tratamiento.</p>
         </div>
         
         <div className="cal-embed-wrapper">
           <Cal 
-            namespace="consulta-nutricional"
-            calLink="agendamiento-clinica/consulta-nutricional"
+            namespace="medbalance"
+            calLink="agendamiento-clinica"
             style={{width:"100%", height:"100%", overflow:"scroll"}}
             config={{layout: 'month_view', theme: 'light'}}
           />
