@@ -219,13 +219,25 @@ export default function Home() {
       {/* Servicios Médicos */}
       <section className="services-section" id="servicios">
         <div className="container">
-          <div className="section-header">
+          <motion.div 
+            className="section-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="tagline">Especialidades</span>
             <h2>Servicios Médicos y Valores</h2>
             <p>Selecciona una especialidad para conocer nuestros programas terapéuticos y los valores preferenciales aplicables.</p>
-          </div>
+          </motion.div>
 
-          <div className="tabs-nav">
+          <motion.div 
+            className="tabs-nav"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             {tabs.map((tab) => (
               <button 
                 key={tab.id}
@@ -238,7 +250,7 @@ export default function Home() {
                 {tab.label}
               </button>
             ))}
-          </div>
+          </motion.div>
 
           <div style={{position: 'relative'}}>
             <AnimatePresence mode="wait">
@@ -264,18 +276,18 @@ export default function Home() {
                       </div>
 
                       <div className="price-list">
-                        <div className="price-item">
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Sesión psicológica adulto individual</span>
                           <div className="price-values"><span className="val-part">$30.000</span><span className="val-conv">$20.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Test ADOS-2</span>
                           <div className="price-values"><span className="val-part">$120.000</span><span className="val-conv">$90.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Terapia de pareja (por sesión)</span>
                           <div className="price-values"><span className="val-part">$55.000</span><span className="val-conv">$45.000</span></div>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -299,18 +311,18 @@ export default function Home() {
                       <p>Recuperación funcional, masoterapia clínica y entrenamiento personalizado. Guiamos tu proceso para devolverte la movilidad y el rendimiento físico.</p>
                       <div className="fonasa-alert"><img src="/img/logo-fonasa.jpg" alt="Fonasa" /><span><b>Valor convenio</b> garantizado con certificado Fonasa.</span></div>
                       <div className="price-list">
-                        <div className="price-item">
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Sesión de Kinesiología</span>
                           <div className="price-values"><span className="val-part">$25.000</span><span className="val-conv">$20.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Plan 10 Sesiones Kinesiología</span>
                           <div className="price-values"><span className="val-part">$180.000</span><span className="val-conv">$145.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Masoterapia Clínica</span>
                           <div className="price-values"><span className="val-part">$16.000</span><span className="val-conv">$13.000</span></div>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -334,18 +346,18 @@ export default function Home() {
                       <p>Evaluación e intervención en patologías del habla, lenguaje y audición. Desde estimulación temprana hasta tratamientos avanzados con equipos clínicos especializados.</p>
                       <div className="fonasa-alert"><img src="/img/logo-fonasa.jpg" alt="Fonasa" /><span><b>Valor convenio</b> garantizado con certificado Fonasa.</span></div>
                       <div className="price-list">
-                        <div className="price-item">
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Evaluación Inicial</span>
                           <div className="price-values"><span className="val-part">$25.000</span><span className="val-conv">$20.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Sesión de Intervención</span>
                           <div className="price-values"><span className="val-part">$20.000</span><span className="val-conv">$16.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Otoscopía + Video + Lavado de oídos</span>
                           <div className="price-values"><span className="val-part">$20.000</span><span className="val-conv">$16.000</span></div>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -369,18 +381,18 @@ export default function Home() {
                       <p>Planes alimentarios basados en evidencia científica. Evaluaciones de composición corporal para lograr objetivos sostenibles de forma individual o familiar.</p>
                       <div className="fonasa-alert"><img src="/img/logo-fonasa.jpg" alt="Fonasa" /><span><b>Valor convenio</b> garantizado con certificado Fonasa.</span></div>
                       <div className="price-list">
-                        <div className="price-item">
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Plan Nutricional Individual</span>
                           <div className="price-values"><span className="val-part">$25.000</span><span className="val-conv">$20.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Evaluación de Composición Corporal</span>
                           <div className="price-values"><span className="val-part">$15.000</span><span className="val-conv">$12.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Plan Dúo</span>
                           <div className="price-values"><span className="val-part">$35.000</span><span className="val-conv">$28.000</span></div>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -405,18 +417,18 @@ export default function Home() {
                       <p>Evaluación de perfil sensorial y camuflaje social (CAT-Q), enfocada en potenciar la autonomía y participación activa en actividades de la vida diaria.</p>
                       <div className="fonasa-alert"><img src="/img/logo-fonasa.jpg" alt="Fonasa" /><span><b>Valor convenio</b> garantizado con certificado Fonasa.</span></div>
                       <div className="price-list">
-                        <div className="price-item">
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Atención de Terapia Ocupacional</span>
                           <div className="price-values"><span className="val-part">$25.000</span><span className="val-conv">$20.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Evaluación e informe CAT-Q</span>
                           <div className="price-values"><span className="val-part">$25.000</span><span className="val-conv">$20.000</span></div>
-                        </div>
-                        <div className="price-item">
+                        </motion.div>
+                        <motion.div className="price-item" whileHover={{ x: 8, boxShadow: 'var(--shadow-md)', borderColor: 'var(--teal-light)' }}>
                           <span className="price-name">Evaluación e informe Perfil Sensorial (Dunn)</span>
                           <div className="price-values"><span className="val-part">$25.000</span><span className="val-conv">$20.000</span></div>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -430,56 +442,80 @@ export default function Home() {
       {/* Equipo Médico */}
       <section className="team-section" id="equipo">
         <div className="container">
-          <div className="section-header">
-            <span className="tagline">Especialistas</span>
+          <motion.div 
+            className="section-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="tagline">Profesionales</span>
             <h2>Nuestro Equipo Clínico</h2>
-            <p>Profesionales altamente calificados dedicados a brindarte la mejor atención con un enfoque integral y humano.</p>
-          </div>
+            <p>Especialistas altamente calificados comprometidos con tu bienestar.</p>
+          </motion.div>
           <div className="team-grid">
             
-            <div className="team-card-premium">
+            <motion.div 
+              className="team-card-premium"
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <div className="team-photo-wrapper"><img src="/img/team-liss-new.png" alt="Liss" /></div>
               <h4>Liss</h4>
               <p>Psicóloga Clínica</p>
               <a href="https://agendapro.com/site/cl/centrodesaludmedbalance" target="_blank" className="btn btn-outline" style={{width: '100%', marginTop: '24px', padding: '10px', fontSize: '0.9rem'}}>Agendar Hora</a>
-            </div>
+            </motion.div>
             
-            <div className="team-card-premium">
+            <motion.div 
+              className="team-card-premium"
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <div className="team-photo-wrapper"><img src="/img/team-andrea.jpg" alt="Andrea Retamal Baeza" /></div>
               <h4>Andrea Retamal Baeza</h4>
               <p>Nutricionista</p>
               <a href="https://agendapro.com/site/cl/centrodesaludmedbalance" target="_blank" className="btn btn-outline" style={{width: '100%', marginTop: '24px', padding: '10px', fontSize: '0.9rem'}}>Agendar Hora</a>
-            </div>
+            </motion.div>
             
-            <div className="team-card-premium">
+            <motion.div 
+              className="team-card-premium"
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <div className="team-photo-wrapper"><img src="/img/team-eunice-new.jpg" alt="Eunice Lefiqueo" /></div>
               <h4>Eunice Lefiqueo</h4>
               <p>Nutricionista</p>
               <a href="https://agendapro.com/site/cl/centrodesaludmedbalance" target="_blank" className="btn btn-outline" style={{width: '100%', marginTop: '24px', padding: '10px', fontSize: '0.9rem'}}>Agendar Hora</a>
-            </div>
+            </motion.div>
             
-            <div className="team-card-premium">
+            <motion.div 
+              className="team-card-premium"
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
+            >
               <div className="team-photo-wrapper"><img src="/img/team-gabriela-new.png" alt="Gabriela Caniullán Coña" /></div>
               <h4>Gabriela Caniullán Coña</h4>
               <p>Fonoaudióloga</p>
               <a href="https://agendapro.com/site/cl/centrodesaludmedbalance" target="_blank" className="btn btn-outline" style={{width: '100%', marginTop: '24px', padding: '10px', fontSize: '0.9rem'}}>Agendar Hora</a>
-            </div>
+            </motion.div>
             
-            <div className="team-card-premium">
+            <motion.div 
+              className="team-card-premium"
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.5 }}
+            >
               <div className="team-photo-wrapper"><img src="/img/team-valentina.jpg" alt="Valentina Henríquez Millanao" /></div>
               <h4>Valentina Henríquez Millanao</h4>
               <p>Terapeuta Ocupacional</p>
               <a href="https://agendapro.com/site/cl/centrodesaludmedbalance" target="_blank" className="btn btn-outline" style={{width: '100%', marginTop: '24px', padding: '10px', fontSize: '0.9rem'}}>Agendar Hora</a>
-            </div>
+            </motion.div>
 
-            <div className="team-card-premium">
+            <motion.div 
+              className="team-card-premium"
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.6 }}
+            >
               <div className="team-photo-wrapper">
                 <div style={{width:'100%', height:'100%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'3rem', color:'var(--teal)', fontWeight:700, fontFamily:'var(--font-merriweather)', background:'var(--white)'}}>IA</div>
               </div>
               <h4>Ian Arévalo</h4>
               <p>Kinesiólogo</p>
               <a href="https://agendapro.com/site/cl/centrodesaludmedbalance" target="_blank" className="btn btn-outline" style={{width: '100%', marginTop: '24px', padding: '10px', fontSize: '0.9rem'}}>Agendar Hora</a>
-            </div>
+            </motion.div>
 
           </div>
         </div>
