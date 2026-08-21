@@ -598,10 +598,13 @@ export default function Home() {
 
       {/* Footer */}
       <footer>
+        <div className="footer-bg-glow"></div>
         <div className="container">
           <div className="footer-grid">
             <div>
-              <a href="#" className="footer-brand"><img src="/img/logo-sitio-web.png" alt="MedBalance" style={{background:'var(--white)', padding:'12px 24px', borderRadius:'12px', objectFit:'contain'}} /></a>
+              <a href="#" className="footer-brand">
+                <img src="/img/logo-sitio-web.png" alt="MedBalance" />
+              </a>
               <p style={{marginBottom:'24px', maxWidth:'300px', fontSize:'1rem', lineHeight: '1.8'}}>Centro de salud integral en Temuco. Nuestro compromiso es tu equilibrio físico y mental a través de un servicio clínico de excelencia.</p>
               <div style={{display:'flex', gap:'16px'}}>
                 <a href="https://instagram.com/medbalance_tco" target="_blank" style={{color:'var(--white)', opacity:0.8, background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%'}}>
