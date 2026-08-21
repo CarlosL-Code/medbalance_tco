@@ -221,7 +221,24 @@
   .val-part { font-size: 0.85rem; color: var(--ink-light); text-decoration: line-through; }
   .val-conv { font-size: 1.1rem; font-weight: 700; color: var(--orange); }
 
-  /* Convenios Marquee Premium */
+    /* Team Section Premium */
+  .team-section { background: var(--surface); padding-top: 60px; }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; }
+  .team-card-premium {
+    background: var(--white); border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center; padding-bottom: 24px;
+  }
+  .team-card-premium:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .team-photo-wrapper { width: 100%; aspect-ratio: 1/1; overflow: hidden; margin-bottom: 20px; background: var(--teal-bg); }
+  .team-photo-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .team-card-premium:hover .team-photo-wrapper img { transform: scale(1.05); }
+  .team-card-premium h4 { font-size: 1.15rem; margin-bottom: 4px; color: var(--ink); }
+  .team-card-premium p { color: var(--teal); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+  .agenda-pro-btn { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 10px 24px; background: var(--surface); border: 1px solid var(--border); color: var(--teal-deep); font-weight: 600; font-size: 0.85rem; border-radius: 8px; transition: all 0.3s; }
+  .agenda-pro-btn:hover { background: var(--teal-deep); color: var(--white); border-color: var(--teal-deep); }
+
+  /* Convenios Marquee
   .convenios-section { background: var(--teal-deep); color: var(--white); padding: 80px 0; overflow: hidden; }
   .convenios-section .section-header h2 { color: var(--white); }
   .convenios-section .section-header p { color: rgba(255,255,255,0.7); }
@@ -375,7 +392,7 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="#reserva" class="btn btn-outline">Portal Paciente</a>
+        <a href="https://agendapro.com" target="_blank" class="btn btn-outline" style="background:var(--teal-bg);">Reserva AgendaPro</a>
         <button class="burger"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg></button>
       </div>
     </div>
@@ -640,6 +657,62 @@
     </div>
   </section>
 
+    <!-- Equipo Médico -->
+  <section class="team-section" id="equipo">
+    <div class="container">
+      <div class="section-header">
+        <span class="tagline">Especialistas</span>
+        <h2>Nuestro Equipo Clínico</h2>
+        <p>Profesionales dedicados a brindarte la mejor atención con un enfoque integral y humano.</p>
+      </div>
+      <div class="team-grid">
+        
+        <div class="team-card-premium">
+          <div class="team-photo-wrapper"><img src="img/team-liss-new.png" alt="Liss"></div>
+          <h4>Liss</h4>
+          <p>Psicóloga Clínica</p>
+          <a href="#contacto" class="agenda-pro-btn">Agendar Hora</a>
+        </div>
+        
+        <div class="team-card-premium">
+          <div class="team-photo-wrapper"><img src="img/team-andrea.jpg" alt="Andrea Retamal Baeza"></div>
+          <h4>Andrea Retamal Baeza</h4>
+          <p>Nutricionista</p>
+          <a href="#contacto" class="agenda-pro-btn">Agendar Hora</a>
+        </div>
+        
+        <div class="team-card-premium">
+          <div class="team-photo-wrapper"><img src="img/team-eunice-new.jpg" alt="Eunice Lefiqueo"></div>
+          <h4>Eunice Lefiqueo</h4>
+          <p>Nutricionista</p>
+          <a href="#contacto" class="agenda-pro-btn">Agendar Hora</a>
+        </div>
+        
+        <div class="team-card-premium">
+          <div class="team-photo-wrapper"><img src="img/team-gabriela-new.png" alt="Gabriela Caniullán Coña"></div>
+          <h4>Gabriela Caniullán Coña</h4>
+          <p>Fonoaudióloga</p>
+          <a href="#contacto" class="agenda-pro-btn">Agendar Hora</a>
+        </div>
+        
+        <div class="team-card-premium">
+          <div class="team-photo-wrapper"><img src="img/team-valentina.jpg" alt="Valentina Henríquez Millanao"></div>
+          <h4>Valentina Henríquez Millanao</h4>
+          <p>Terapeuta Ocupacional</p>
+          <a href="#contacto" class="agenda-pro-btn">Agendar Hora</a>
+        </div>
+
+        <div class="team-card-premium">
+          <div class="team-photo-wrapper"><div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--teal); font-weight:700;">IA</div></div>
+          <h4>Ian Arévalo</h4>
+          <p>Kinesiólogo</p>
+          <a href="#contacto" class="agenda-pro-btn">Agendar Hora</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Convenios Marquee -->
   <section class="convenios-section" id="convenios">
     <div class="container">
@@ -809,4 +882,6 @@
 </script>
 </body>
 </html>
+
+
 
